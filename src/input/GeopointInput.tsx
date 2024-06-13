@@ -16,7 +16,7 @@ const getStaticImageUrl = (value: LatLng, apiKey: string, zoom?: number) => {
     key: apiKey,
     center: loc,
     markers: loc,
-    zoom: zoom || 13,
+    zoom: zoom ?? 8,
     scale: 2,
     size: '640x300',
   } as const
@@ -172,7 +172,7 @@ class GeopointInput extends React.PureComponent<GeopointInputProps, InputState> 
                     onChange={readOnly ? undefined : this.handleChange}
                     onZoomChange={readOnly || !config.saveZoom ? undefined : this.handleZoomChange}
                     defaultLocation={config.defaultLocation}
-                    defaultZoom={value?.alt || config.defaultZoom}
+                    defaultZoom={value?.alt ?? config.defaultZoom}
                   />
                 )}
               </GoogleMapsLoadProxy>
